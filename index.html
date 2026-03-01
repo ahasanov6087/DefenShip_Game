@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Desktop</title>
+    <link rel="stylesheet" href="./CSS/style.css">
+</head>
+<body>
+
+<!-- ── PC SCREEN ──────────────────────────────────────────────── -->
+<div class="pc-screen">
+    <canvas id="binaryCanvas"></canvas>
+
+    <div class="desktop" id="desktop">
+
+        <div class="folder-icon folder1" data-folder="1">
+            <div class="icon-img"></div>
+            <span class="folder-name">Links</span>
+            <div class="notification-badge" id="notification-folder1">1</div>
+        </div>
+
+        <div class="folder-icon folder2" data-folder="2">
+            <div class="icon-img"></div>
+            <span class="folder-name">Password</span>
+            <div class="notification-badge" id="notification-folder2">1</div>
+        </div>
+
+        <div class="folder-icon folder3" data-folder="3">
+            <div class="icon-img"></div>
+            <span class="folder-name">Instructions</span>
+            <div class="notification-badge" id="notification-folder3">1</div>
+        </div>
+
+    </div>
+</div>
+
+<!-- ── SCORE BAR ──────────────────────────────────────────────── -->
+<div class="score-container">
+    <div class="score-box">
+        <span class="score-label">Score</span>
+        <span class="score-value" id="scoreDisplay">0</span>
+    </div>
+</div>
+
+<!-- ── GAME OVER ──────────────────────────────────────────────── -->
+<div id="gameOverScreen" class="game-over hidden">
+    <div class="game-over-content">
+        <div class="game-over-title">YOU LOST BECAUSE:</div>
+        <div class="game-over-reason" id="gameOverReason"></div>
+    </div>
+</div>
+
+<!-- ── AUDIO ──────────────────────────────────────────────────── -->
+<audio id="errorSound" preload="auto">
+    <source src="./CSS/Audio/Windows Error Meme (mp3cut.net).mp3" type="audio/mpeg">
+</audio>
+<audio id="notificationSound" preload="auto">
+    <source src="./CSS/Audio/dragon-studio-notification-sound-effect-372475.mp3" type="audio/mpeg">
+</audio>
+
+<!-- ── SCRIPTS ────────────────────────────────────────────────── -->
+<script src="./javascript/database.js"></script>
+<script src="./javascript/binary-bg.js"></script>
+<script src="./javascript/script.js"></script>
+
+</body>
+</html>
