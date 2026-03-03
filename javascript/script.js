@@ -512,15 +512,15 @@ const entranceContent = document.querySelector('.entrance-content');
 
     function getRandomFolder() {
 
-        // Weighted distribution: 50% Folder 1, 25% Folder 2, 25% Folder 3
+        // Weighted distribution: 40% Folder 1, 30% Folder 2, 30% Folder 3
 
         const roll = Math.random();
 
-        if (roll < 0.5) return '1';       // 50%
+        if (roll < 0.4) return '1';       // 40%
 
-        if (roll < 0.75) return '2';      // 25%
+        if (roll < 0.7) return '2';      // 30%
 
-        return '3';                        // 25%
+        return '3';                        // 30%
 
     }
 
@@ -1050,8 +1050,6 @@ const entranceContent = document.querySelector('.entrance-content');
                 <div class="call-avatar">${'📞'}</div>
 
                 <div class="call-number">${number}</div>
-
-                <div class="call-status">${isSafe ? 'Azərbaycan nömrəsi' : 'Bilinməyən xarici nömrə'}</div>
 
                 <div class="call-buttons">
 
