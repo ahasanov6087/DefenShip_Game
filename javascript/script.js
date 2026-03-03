@@ -508,7 +508,21 @@ const entranceContent = document.querySelector('.entrance-content');
 
 
 
-    /* ── SHARED TIMER ───────────────────────────────────────── */
+    /* ── SHARED TIMER WITH WEIGHTED PROBABILITY ───────────── */
+
+    function getRandomFolder() {
+
+        // Weighted distribution: 50% Folder 1, 25% Folder 2, 25% Folder 3
+
+        const roll = Math.random();
+
+        if (roll < 0.5) return '1';       // 50%
+
+        if (roll < 0.75) return '2';      // 25%
+
+        return '3';                        // 25%
+
+    }
 
     function startSharedTimer() {
 
@@ -526,11 +540,9 @@ const entranceContent = document.querySelector('.entrance-content');
 
         questionTimer = setTimeout(() => {
 
-            // Equal 1/3 chance for each folder
+            // Use weighted probability instead of equal distribution
 
-            const roll = Math.random();
-
-            activeFolder = roll < 1/3 ? '1' : roll < 2/3 ? '2' : '3';
+            activeFolder = getRandomFolder();
 
             if (activeFolder === '1' && notificationFolder1) notificationFolder1.style.display = 'flex';
 
@@ -546,15 +558,44 @@ const entranceContent = document.querySelector('.entrance-content');
 
 
 
+    /* ── GET RANDOM QUESTION FROM DATABASE ──────────────────── */
+
+    function getRandomQuestion() {
+
+        // Get all questions from database (convert object to array)
+
+        const db = window.quizDatabase;
+        
+        if (!db || Object.keys(db).length === 0) {
+
+            return {
+
+                question: 'Xəta', 
+
+                correctAnswer: 'no', 
+
+                explanationWrong: 'Bilinməyən xəta'
+
+            };
+
+        }
+
+        // Get all question keys and pick random one
+        const questionKeys = Object.keys(db);
+        const randomKey = questionKeys[Math.floor(Math.random() * questionKeys.length)];
+        
+        // Return the random question from database
+        return db[randomKey];
+
+    }
+
+
+
     /* ── QUESTION WINDOW ────────────────────────────────────── */
 
     function createQuestionWindow() {
 
-        const q = window.quizDatabase?.['1'] || {
-
-            question: 'Xəta', correctAnswer: 'no', explanationWrong: 'Bilinməyən xəta'
-
-        };
+        const q = getRandomQuestion();
 
 
 
