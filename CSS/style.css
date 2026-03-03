@@ -418,3 +418,131 @@ body {
 
 .dragging { opacity: 0.98; }
 .hidden   { display: none !important; }
+/* ── BLUE CYBER ENTRANCE ─────────────────────────────────── */
+.entrance-overlay {
+    position: fixed;
+    inset: 0;
+    background: #050505; /* Deep black for better blue contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.entrance-content {
+    text-align: center;
+    width: 360px;
+    padding: 50px 40px;
+    background: rgba(10, 10, 25, 0.95); /* Slight blue tint */
+    border: 1px solid rgba(0, 140, 255, 0.3);
+    border-radius: 15px;
+    box-shadow: 
+        0 0 40px rgba(0, 0, 0, 1),
+        0 0 20px rgba(0, 140, 255, 0.15),
+        inset 0 0 15px rgba(0, 140, 255, 0.05);
+    backdrop-filter: blur(10px);
+    transition: transform 0.5s ease;
+}
+
+.entrance-logo img {
+    max-width: 140px;
+    margin-bottom: 40px;
+    filter: drop-shadow(0 0 15px rgba(0, 140, 255, 0.6));
+}
+
+.tutorial-section .label {
+    color: rgba(0, 140, 255, 0.6);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    margin-bottom: 10px;
+}
+
+.tutorial-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    border-bottom: 1px solid #008cff;
+    padding-bottom: 2px;
+    display: inline-block;
+    margin-bottom: 40px;
+    transition: all 0.2s;
+}
+
+.tutorial-link:hover {
+    color: #008cff;
+    border-bottom-color: #fff;
+}
+
+.start-button {
+    width: 100%;
+    background: linear-gradient(135deg, #0056b3, #008cff);
+    border: none;
+    color: white;
+    padding: 16px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    box-shadow: 0 4px 15px rgba(0, 140, 255, 0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.start-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(0, 140, 255, 0.6);
+    filter: brightness(1.1);
+}
+
+/* Boot sequence matches binary-bg colors */
+.boot-sequence {
+    text-align: left;
+    font-family: 'Consolas', 'Courier New', monospace;
+    color: #b4e6ff; /* Match your "Head" color */
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 3px;
+    background: rgba(0, 140, 255, 0.1);
+    margin-top: 25px;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #008cff;
+    box-shadow: 0 0 15px #008cff;
+}
+/* Add this to your style.css */
+#typewriterTarget p {
+    margin: 5px 0;
+    font-family: 'Consolas', monospace;
+    color: #b4e6ff; /* Your bright blue head color */
+    text-shadow: 0 0 5px rgba(0, 140, 255, 0.5);
+}
+
+/* Optional: Blinking cursor on the last line */
+#typewriterTarget p:last-child::after {
+    content: '_';
+    animation: blink 0.8s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Ensure boot-sequence is styled correctly */
+.boot-sequence {
+    width: 300px; /* Keep it aligned with the content width */
+    text-align: left;
+}
