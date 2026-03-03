@@ -14,8 +14,10 @@
     let cols, drops, opacityMap;
 
     function init() {
-        canvas.width  = canvas.offsetWidth;
-        canvas.height = canvas.offsetHeight;
+        // Use full viewport dimensions
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
         cols = Math.floor(canvas.width / FONT_SIZE);
         drops = Array.from({ length: cols }, () => Math.random() * -50);
         // Left edge = 0 opacity, right edge = full opacity (ease-in curve)
@@ -60,7 +62,16 @@
         requestAnimationFrame(draw);
     }
 
-    new ResizeObserver(() => init()).observe(canvas);
+    // Initialize canvas immediately
     init();
     draw();
+
+    // Handle window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            init();
+        }, 100);
+    });
 })();

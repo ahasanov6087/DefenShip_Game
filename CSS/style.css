@@ -1,5 +1,5 @@
 /* ── BASE ───────────────────────────────────────────────── */
-* { margin: 0; user-select: none; box-sizing: border-box; }
+* { margin: 0; padding: 0; user-select: none; box-sizing: border-box; }
 
 body {
     background-color: #1a1a1a;
@@ -418,11 +418,12 @@ body {
 
 .dragging { opacity: 0.98; }
 .hidden   { display: none !important; }
+
 /* ── BLUE CYBER ENTRANCE ─────────────────────────────────── */
 .entrance-overlay {
     position: fixed;
     inset: 0;
-    background: #050505; /* Deep black for better blue contrast */
+    background: #050505;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -434,7 +435,7 @@ body {
     text-align: center;
     width: 360px;
     padding: 50px 40px;
-    background: rgba(10, 10, 25, 0.95); /* Slight blue tint */
+    background: rgba(10, 10, 25, 0.95);
     border: 1px solid rgba(0, 140, 255, 0.3);
     border-radius: 15px;
     box-shadow: 
@@ -498,13 +499,13 @@ body {
     filter: brightness(1.1);
 }
 
-/* Boot sequence matches binary-bg colors */
 .boot-sequence {
     text-align: left;
     font-family: 'Consolas', 'Courier New', monospace;
-    color: #b4e6ff; /* Match your "Head" color */
+    color: #b4e6ff;
     font-size: 0.9rem;
     line-height: 1.8;
+    width: 300px;
 }
 
 .progress-bar {
@@ -522,15 +523,14 @@ body {
     background: #008cff;
     box-shadow: 0 0 15px #008cff;
 }
-/* Add this to your style.css */
+
 #typewriterTarget p {
     margin: 5px 0;
     font-family: 'Consolas', monospace;
-    color: #b4e6ff; /* Your bright blue head color */
+    color: #b4e6ff;
     text-shadow: 0 0 5px rgba(0, 140, 255, 0.5);
 }
 
-/* Optional: Blinking cursor on the last line */
 #typewriterTarget p:last-child::after {
     content: '_';
     animation: blink 0.8s infinite;
@@ -539,10 +539,4 @@ body {
 @keyframes blink {
     0%, 100% { opacity: 1; }
     50% { opacity: 0; }
-}
-
-/* Ensure boot-sequence is styled correctly */
-.boot-sequence {
-    width: 300px; /* Keep it aligned with the content width */
-    text-align: left;
 }
